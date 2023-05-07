@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantly</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<style>
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #0c0b09;
+  color: #fff;
+}
+
+a {
+  color: #cda45e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d9ba85;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #1a1814;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #1a1814;
+  border-top-color: #cda45e;
+  border-bottom-color: #cda45e;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  border: 2px solid #cda45e;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  color: #cda45e;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #cda45e;
+  color: #1a1814;
+}
+
+.back-to-top:hover i {
+  color: #444444;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Top Bar
+--------------------------------------------------------------*/
+#topbar {
+  height: 40px;
+  font-size: 14px;
+  transition: all 0.5s;
+  z-index: 996;
+}
+
+#topbar.topbar-scrolled {
+  top: -40px;
+}
+
+#topbar .contact-info i {
+  font-style: normal;
+  color: #d9ba85;
+}
+
+#topbar .contact-info i span {
+  padding-left: 5px;
+  color: #fff;
+}
+
+#topbar .languages ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #cda45e;
+}
+
+#topbar .languages ul a {
+  color: white;
+}
+
+#topbar .languages ul li + li {
+  padding-left: 10px;
+}
+
+#topbar .languages ul li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  content: "/";
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  background: rgba(12, 11, 9, 0.6);
+  border-bottom: 1px solid rgba(12, 11, 9, 0.6);
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 15px 0;
+  top: 40px;
+}
+
+#header.header-scrolled {
+  top: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid #37332a;
+}
+
+#header .logo {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+#header .logo a {
+  color: #fff;
+}
+
+#header .logo img {
+  max-height: 40px;
+}
+
+/*--------------------------------------------------------------
+# Book a table button Menu
+--------------------------------------------------------------*/
+.book-a-table-btn {
+  margin: 0 0 0 15px;
+  border: 2px solid #cda45e;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 25px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.book-a-table-btn:hover {
+  background: #cda45e;
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .book-a-table-btn {
+    margin: 0 15px 0 0;
+    padding: 8px 20px;
+  }
+}
+
+#index.html {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/hero-bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
+#index.html:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#index.html .container {
+  padding-top: 110px;
+}
+
+@media (max-width: 992px) {
+  #index.html .container {
+    padding-top: 98px;
+  }
+}
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  color: #fff;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.navbar a i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover, .navbar .active, .navbar li:hover > a {
+  color: #d9ba85;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  color: #444444;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
+  color: #cda45e;
+}
+
+.navbar .dropdown:hover > ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover > ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+  .navbar .dropdown .dropdown:hover > ul {
+    left: -100%;
+  }
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #1a1814;
+}
+
+.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+  color: #cda45e;
+}
+
+.navbar-mobile .getstarted {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
+  color: #cda45e;
+}
+
+.navbar-mobile .dropdown > .dropdown-active {
+  display: block;
+}
+.container1{
+            max-width: 1100px;
+            font-family: sans-serif;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: #a55c1b;
+            background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);           
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table{
+            width: 100%;
+            border-spacing: 0px;
+        }
+        th{
+            text-align: left;
+        }
+        table td:focus{
+            background-color:  #c6def6;
+        }
+        td:nth-child(3){
+            width: 400px;
+        }
+        td:last-child{
+            text-align: right;
+        }
+        table th,
+        table td{
+            padding: 15px 0px;
+            border-bottom: 1px solid #cacaca;
+            outline: none;
+        }
+
+        
+        .container2{
+          max-width: 520px;
+          margin: auto;
+          margin-top: 50px;
+          padding: 20px;
+          font-family: sans-serif;
+          background-color: #a55c1b;
+          background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);  
+      }
+      h1{
+          margin-bottom: 30px;
+      }
+      input,
+      textarea{
+          width: calc(100% - 20px);
+          display: block;
+          padding: 6px;
+          font-size: 20px;
+          margin-top: 5px;
+          margin-bottom: 15px;
+          outline: none;
+      }
+      textarea{
+          height: 100px;
+      }
+
+      button{
+        display: inline-block;
+        padding: 15px 24px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+      }
+      .container2,.container1, button {
+        justify-content: center;
+        text-align: center;
+      }
+    </style>
+</style>
+<body>
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+    
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
+            <i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Sat: 11AM - 23PM</span></i>
+          </div>
+    
+          <div class="languages d-none d-md-flex align-items-center">
+            <ul>
+              <li>En</li>
+              <li><a href="#">De</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <header id="header" class="fixed-top d-flex align-items-cente">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+    
+          <h1 class="logo me-auto me-lg-0"><a href="index.html">Restaurantly</a></h1>
+    
+          <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+              <li><a class="nav-link" href="index.html#hero">Home</a></li>
+              <li><a class="nav-link" href="index.html#about">About</a></li>
+              <li><a class="nav-link" href="index.html#menu">Menu</a></li>
+              <li><a class="nav-lin" href="index.html#specials">Specials</a></li>
+              <li><a class="nav-link" href="index.html#events">Events</a></li>
+              <li><a class="nav-link" href="index.html#chefs">Chefs</a></li>
+              <li><a class="nav-link" href="firebase.html">Firebase</a></li>
+              <li><a class="nav-link" href="index.html#gallery">Gallery</a></li>
+              <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">Drop Down 1</a></li>
+                  <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="#">Deep Drop Down 1</a></li>
+                      <li><a href="#">Deep Drop Down 2</a></li>
+                      <li><a href="#">Deep Drop Down 3</a></li>
+                      <li><a href="#">Deep Drop Down 4</a></li>
+                      <li><a href="#">Deep Drop Down 5</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Drop Down 2</a></li>
+                  <li><a href="#">Drop Down 3</a></li>
+                  <li><a href="#">Drop Down 4</a></li>
+                </ul>
+              </li>
+              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+    
+        </div>
+      </header>
+    </br></br></br>
+    
+      <div class="container2">
+        <h1 class="heading"> <span>Contact Us</span> Us </h1>
+        <div class="form">
+            <label>Name</label>
+            <input type="text" name="Name" id="name">
+            <label>Address</label>
+            <input type="address" name="Address" id="address">
+            <label>Email</label>
+            <input type="email" name="Email" id="email">
+            <label>Message</label>
+            <textarea></textarea>
+            <button style="background-color: rgb(51, 170, 51);">Submit</button>
+        </div>
+    </div>
+
+    
+<!-- add firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-database-compat.js"></script>
+
+<script>
+    const firebaseConfig = {
+        databaseURL: "https://crudfirebase-db174-default-rtdb.firebaseio.com/"
+    }
+    firebase.initializeApp(firebaseConfig)
+    // here connection is created with database
+    const database = firebase.database()
+
+    // run function on click submit btn
+    const submit = document.querySelector('button')
+    submit.onclick = () => sendData()
+
+    // create a function to send data
+    function sendData(){
+        var name = document.querySelectorAll('input')[0]
+        var address = document.querySelectorAll('input')[1]
+        var email = document.querySelectorAll('input')[2]
+        var message = document.querySelector('textarea')
+
+        alert("Data Inserted");
+
+ 
+        // set path where data will store
+        var listRef = database.ref('messages/')
+        // but we need firebase generated unique id's to show list data so
+        // push() will generate unique id
+        var newRef = listRef.push()
+        // now set data in db on given path
+        newRef.set({
+            // now send our data
+            'name': name.value,
+            'address': address.value,
+            'email': email.value,
+            'message': message.value
+        })
+    }
+
+
+</script>
+</body>
+
+<body>
+  <div class="container1">
+    <h1 class="heading"> <span>Firebase</span> Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <h2><th>Name</th></h2>
+                <h2><th>Address</th></h2>
+                <h2><th>Email</th></h2>
+                <h2><th>Message</th></h2>
+                <h2><th style="justify-content: center; text-align: center;">Actions</th></h2>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<!-- add firebase CDN -->
+
+<script>
+
+const dataContainer = document.querySelector('tbody')
+
+// give complete path to fetch data as given during sending
+var fetchedData = database.ref('messages/')
+fetchedData.on('value', (snapshot) => {
+    var data = snapshot.val()
+    // now set data in table
+    var htmlData = ''
+    for(var key in data){
+        var value = data[key]
+        htmlData += `
+            <tr>
+                <td>${value.name}</td>
+                <td>${value.address}</td>
+                <td>${value.email}</td>
+                <td>${value.message}</td>
+                <td>
+                    <button style="background-color: orange" onclick="readyForUpdate('${key}', this)">Update</button>
+                    <button style="background-color: red" onclick="removeMess('${key}')">Delete</button>
+                </td>
+            </tr>
+        `;
+    }
+    // we use unique id's as reference to delete and update data
+    dataContainer.innerHTML = htmlData
+})
+
+// remove message function
+function removeMess(uniqueId){
+    database.ref('messages/' + uniqueId).remove()
+    // this realtime remove will delete data without any loading
+    // as data is updated, it refetch and rerender in html automatically
+    alert("Data Removed");
+}
+
+// update function 
+function readyForUpdate(uniqueId, elem){
+    // lets ready for update
+    // it will get all the td of the tr in which btn in clicked
+    var siblingTd = elem.parentElement.parentElement.getElementsByTagName('td')
+    // convert first three td to editable
+    for(var i = 0; i < siblingTd.length-1; i++){
+        siblingTd[i].contentEditable = true
+        siblingTd[i].classList.add('temp-update-class')
+    }
+    // also change onclick function
+    elem.setAttribute('onclick', `updateNow('${uniqueId}')`)
+    elem.innerHTML = 'Send'
+}
+
+// create updateNow function
+function updateNow(uniqueId){
+    var contentId = document.querySelectorAll('.temp-update-class')
+    // now create obj using same keys as used during sending
+    var obj = {
+        'name': contentId[0].textContent,
+        'address': contentId[1].textContent,
+        'email': contentId[2].textContent,
+        'message': contentId[3].textContent
+    }
+    // create reference to the data first where data will update
+    // uniqueId will be the id of each message in db
+    var listRef = database.ref('messages/' + uniqueId)
+    // now provide updated data
+    listRef.update(obj)
+    // after update new data will rerender automatically
+    // same as during delete
+    alert("Data Updated");
+}
+
+
+</script>
+</body>
+</html>
